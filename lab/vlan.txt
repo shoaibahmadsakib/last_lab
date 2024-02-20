@@ -1,0 +1,44 @@
+Fariha Mahzabin
+VLAN Configuration for switch0:
+switch>en 
+switch#configure terminal 
+switch(config)#VLAN 10 
+switch(config-VLAN)#name IT 
+switch(config-VLAN)#exit 
+switch(config)#VLAN 20 
+switch(config-VLAN)#name HR 
+switch(config-VLAN)#exit 
+switch(config)#exit 
+switch# 
+switch# show VLAN brief 
+
+switch>en 
+switch#configure terminal 
+switch(config)#interface fastethernet 0/1 
+switch(config-if)#switchport access VLAN 10 
+switch(config-if)#exit 
+switch(config)#interface fastethernet 0/2 
+switch(config-if)#switchport access VLAN 10 
+switch(config-if)#exit 
+switch(config)#interface fastethernet 0/3 
+switch(config-if)#switchport access VLAN 20 
+switch(config-if)#exit 
+switch(config)#interface fastethernet 0/4 
+switch(config-if)#switchport access VLAN 20 
+switch(config-if)#exit 
+switch(config)#exit 
+switch# 
+switch#show VLAN brief 
+
+Switch Configuration for switch0:
+switch>en 
+switch#configure terminal 
+switch(config)#interface fastethernet 0/5 
+switch(config-if)#switchport mode trunk 
+switch(config-if)#exit 
+switch(config)#interface range fa0/1-fa0/4 
+switch(config-if-range)#switchport mode access 
+switch(config-if-range)#exit 
+switch(config)#exit 
+switch# 
+switch#wr
